@@ -20,95 +20,34 @@ public class ScoreboardManager
     public void refreshScoreboard(Player p) {
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask((Plugin) this, new Runnable() {
             public void run() {
-                org.bukkit.scoreboard.ScoreboardManager manager = Bukkit.getScoreboardManager();
-
+                ScoreboardManager manager = Bukkit.getScoreboardManager();
                 final Scoreboard board = manager.getNewScoreboard();
-
                 final Objective objective = board.registerNewObjective("test", "dummy");
 
-
-
                 objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+                objective.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "SKYWARS");
 
-                objective.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "SKYWARS");
+                Score score8 = objective.getScore("  ");
+                score8.setScore(6);
 
+                Score score7 = objective.getScore(ChatColor.YELLOW + "" + ChatColor.BOLD + "Map:");
+                score7.setScore(5);
 
+                Score score6 = objective.getScore(ChatColor.GREEN + "ForestIsland");
+                score6.setScore(4);
 
-                Score score = objective.getScore(ChatColor.GRAY + "Solo");
+                Score score5 = objective.getScore("   ");
+                score5.setScore(3);
 
-                score.setScore(13);
+                Score score4 = objective.getScore(ChatColor.YELLOW + "" + ChatColor.BOLD + "Kills:");
+                score4.setScore(2);
 
-
-
-                Score space1 = objective.getScore("    ");
-
-                space1.setScore(12);
-
-
-
-                Score score1 = objective.getScore("Next Event:");
-
-                score1.setScore(11);
-
-
-
-                Score score2 = objective.getScore(ChatColor.GREEN + "Refill");
-
-                score2.setScore(10);
+                Score score3 = objective.getScore(ChatColor.GREEN + "" + kills.get(p));
+                score3.setScore(1);
 
 
 
-                Score space2 = objective.getScore("       ");
 
-                space2.setScore(9);
-
-
-
-                Score score3 = objective.getScore("Players left: " + ChatColor.GREEN + skywars.players);
-
-                score3.setScore(8);
-
-
-
-                Score space3 = objective.getScore("         ");
-
-                space3.setScore(7);
-
-
-
-                Score score4 = objective.getScore("Kills: " + ChatColor.GREEN + skywars.kills.get(p));
-
-                score4.setScore(6);
-
-
-
-                Score space4 = objective.getScore("             ");
-
-                space4.setScore(5);
-
-
-
-                Score score5 = objective.getScore("Map: " + ChatColor.GREEN  + skywars.map.getName());
-
-                score5.setScore(4);
-
-
-
-                Score score6 = objective.getScore("Mode: " + ChatColor.RED + "Insane");
-
-                score6.setScore(3);
-
-
-
-                Score space5 = objective.getScore("             ");
-
-                space5.setScore(2);
-
-
-
-                Score score7 = objective.getScore(ChatColor.YELLOW + "www.hackpixel.me");
-
-                score7.setScore(1);
                 p.setScoreboard(board);
 
 

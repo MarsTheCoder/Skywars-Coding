@@ -1,3 +1,4 @@
-name: Game
-version: 1.0.0
-main: com.HackPixel.Skywars.Skywars
+name: Skywars
+version: 1.0
+author: Knockdowns
+main: knockdowns.openmc.Skywars
